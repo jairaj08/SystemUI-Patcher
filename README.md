@@ -1,5 +1,5 @@
 # SystemUI-Patcher
-A systemUI patcher mod use for injecting Xmls to SystemUI on Aosp A11+, Systemlessly. 
+A systemUI patcher mod used for injecting Xmls to SystemUI on Aosp A11+, Systemlessly. 
 
 Module Template by @Jai_08
 
@@ -15,13 +15,14 @@ This mod will patch your SystemUI with xmls which you place under the folder sub
 
 Just flash in magisk and reboot.
 
+
 How to use multiple mods together?
 
-Flash any 1 module 
+-Flash any 1 module 
 
-Reboot
+-Reboot
 
-Flash another
+-Flash another
 
 Both will merge automatically and work together
 
