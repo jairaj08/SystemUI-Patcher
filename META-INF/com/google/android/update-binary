@@ -1,0 +1,107 @@
+#!/sbin/sh
+
+#################
+# Initialization
+#################
+
+umask 022
+
+# echo before loading util_functions
+ui_print() { echo "$1"; }
+
+require_new_magisk() {
+  ui_print "*******************************"
+  ui_print " Please install Magisk v20.4+! "
+  ui_print "*******************************"
+  exit 1
+}
+#########################
+# Load util_functions.sh
+#########################
+
+OUTFD=$2
+ZIPFILE=$3
+
+mount /data 2>/dev/null
+
+[ -f /data/adb/magisk/util_functions.sh ] || require_new_magisk
+. /data/adb/magisk/util_functions.sh
+[ $MAGISK_VER_CODE -lt 20400 ] && require_new_magisk
+
+if ! $BOOTMODE; then
+ui_print " " 
+  ui_print "This is a magisk module" 
+  ui_print " Aborting....." 
+  ui_print " " 
+  ui_print " Go and flash in magisk" 
+  ui_print " " 
+  exit 0
+  fi
+
+echo " "
+echo " Module Template by @Jai_08 // @cool_modules " 
+#Do not remove credit if you are using part of this template.
+echo "  "
+
+install_module
+remove()
+{
+rm -rf /data/adb/modules_update/$MODID 2>/dev/null
+  rm -rf /data/adb/modules/$MODID 2>/dev/null 
+}
+tar -xf $MODPATH/utils/myutils -C $MODPATH/utils/ 2>/dev/null
+zipp=$MODPATH/utils/zip
+zipa=$MODPATH/utils/zipalign
+file=$MODPATH/jai/SystemUI.apk
+spath=/system/system_ext/priv-app/SystemUI
+mp=/data/adb/modules
+
+set_perm $zipp 0 0 0755
+set_perm $zipa 0 0 0755
+
+if [ -f "$spath/SystemUI.apk" ]; then
+mkdir -p $MODPATH/jai
+cp -f $spath/SystemUI.apk $MODPATH/jai/
+ui_print " " 
+ui_print " Processing..... "
+else
+remove
+ui_print " This Looks like a non supported Rom..."
+ui_print " Report in support group "
+ui_print " Note : Only Aosp A11+ is Supported "
+exit 1
+fi
+
+cd $MODPATH/substratumXML/SystemUI/
+echo " "
+if $zipp -qq -r $file * ; then echo " Installing Patches..... "
+else 
+echo " Failed to Patch your SystemUI "
+echo " Try again, if same issue report in support group "
+remove
+exit 1
+fi
+echo " "
+mkdir -p $MODPATH/$spath
+if $zipa -f 4 $file $MODPATH/$spath/SystemUI.apk ; then echo " Installed Successfully"
+else 
+echo " Failed to Install, Report in support group "
+remove
+exit 1
+fi
+echo " "
+
+
+. $MODPATH/subs_list.sh
+
+rm -r $MODPATH/jai/
+rm -r $MODPATH/utils/
+rm -r $MODPATH/subs_list.sh
+rm -r $MODPATH/substratumXML
+echo " " 
+
+echo " Done..." 
+echo " Reboot now to apply changes" 
+echo " " 
+
+exit 0

@@ -1,0 +1,7 @@
+id=subsmod
+name=Substratum Module
+version=v1.0
+versionCode=1
+author=Jai
+description=A systemUI patcher for A11+ roms by @cool_modules Place your Xmls under substratumXML folder
+
