@@ -52,26 +52,133 @@ rm -rf /data/adb/modules_update/$MODID 2>/dev/null
 tar -xf $MODPATH/utils/myutils -C $MODPATH/utils/ 2>/dev/null
 zipp=$MODPATH/utils/zip
 zipa=$MODPATH/utils/zipalign
-file=$MODPATH/jai/SystemUI.apk
-spath=/system/system_ext/priv-app/SystemUI
 mp=/data/adb/modules
 
 set_perm $zipp 0 0 0755
 set_perm $zipa 0 0 0755
 
-if [ -f "$spath/SystemUI.apk" ]; then
-mkdir -p $MODPATH/jai
-cp -f $spath/SystemUI.apk $MODPATH/jai/
+
+if [ -f "/system/system_ext/priv-app/SystemUI/SystemUI.apk" ]; then
+spath=/system/system_ext/priv-app/SystemUI
+apkname=SystemUI
 ui_print " " 
 ui_print " Processing..... "
+ui_print " Aosp A11+ Detected..."
+elif [ -f "/system/system_ext/priv-app/SystemUIGoogle/SystemUIGoogle.apk" ]; then
+spath=/system/system_ext/priv-app/SystemUIGoogle
+apkname=SystemUIGoogle
+ui_print " " 
+ui_print " Processing..... "
+ui_print " Pixel A11 / A12 Detected..." 
+elif [ -f "/system/priv-app/TsSystemUI/TsSystemUI.apk" ]; then
+spath=/system/priv-app/TsSystemUI
+apkname=TsSystemUI
+ui_print " " 
+ui_print " Processing..... "
+ui_print " Techno Device Detected..." 
+elif [ -f "/system/priv-app/SystemUIGoogle/SystemUIGoogle.apk" ]; then
+spath=/system/priv-app/SystemUIGoogle
+apkname=SystemUIGoogle
+ui_print " " 
+ui_print " Processing..... "
+ui_print " Pixel Device Detected..." 
+elif [ -f "/system/priv-app/SystemUIWithLegacyRecents/SystemUIWithLegacyRecents.apk" ]; then
+spath=/system/priv-app/SystemUIWithLegacyRecents
+apkname=SystemUIWithLegacyRecents
+ui_print " " 
+ui_print " Processing..... "
+ui_print " Stock Rom / Sony Device Detected..." 
+elif [ -f "/system/system_ext/priv-app/MtkSystemUI/MtkSystemUI.apk" ]; then
+spath=/system/system_ext/priv-app/MtkSystemUI
+apkname=MtkSystemUI
+ui_print " " 
+ui_print " Processing..... "
+ui_print " Mtk A11+ Detected..." 
+elif [ -f "/system/priv-app/AsusSystemUI/AsusSystemUI.apk" ]; then
+spath=/system/priv-app/AsusSystemUI
+apkname=AsusSystemUI
+ui_print " " 
+ui_print " Processing..... "
+ui_print " Asus Device Detected..." 
+elif [ -f "/system/priv-app/AsusSystemUIWW/AsusSystemUIWW.apk" ]; then
+spath=/system/priv-app/AsusSystemUIWW
+apkname=AsusSystemUIWW
+ui_print " " 
+ui_print " Processing..... "
+ui_print " Asus Stock rom Detected..." 
+elif [ -f "/system/product/priv-app/MtkSystemUI/MtkSystemUI.apk" ]; then
+spath=/system/product/priv-app/MtkSystemUI
+apkname=MtkSystemUI
+ui_print " " 
+ui_print " Processing..... "
+ui_print " Mtk A10 Detected..." 
+elif [ -f "/system/product/priv-app/SystemUIGoogle/SystemUIGoogle.apk" ]; then
+spath=/system/product/priv-app/SystemUIGoogle
+apkname=SystemUIGoogle
+ui_print " " 
+ui_print " Processing..... "
+ui_print " Pixel A10 Detected..." 
+elif [ -f "/system/product/priv-app/SystemUI/SystemUI.apk" ]; then
+spath=/system/product/priv-app/SystemUI
+apkname=SystemUI
+ui_print " " 
+ui_print " Processing..... "
+ui_print " Aosp A10 Detected..."
+elif [ -f "/system/priv-app/SystemUI/SystemUI.apk" ]; then
+spath=/system/priv-app/SystemUI
+apkname=SystemUI
+ui_print " " 
+ui_print " Processing..... "
+ui_print " Aosp Detected..."
+elif [ -f "/system/product/priv-app/OPSystemUI/OPSystemUI.apk" ]; then
+spath=/system/product/priv-app/OPSystemUI
+apkname=OPSystemUI
+ui_print " " 
+ui_print " Processing..... "
+ui_print " OOS A10 Detected..."
+elif [ -f "/system/product/priv-app/VinSystemUI/VinSystemUI.apk" ]; then
+spath=/system/product/priv-app/VinSystemUI
+apkname=VinSystemUI
+ui_print " " 
+ui_print " Processing..... "
+ui_print " Vos Device Detected..."
+elif [ -f "/system/system_ext/priv-app/OPSystemUI/OPSystemUI.apk" ]; then
+spath=/system/system_ext/priv-app/OPSystemUI
+apkname=OPSystemUI
+ui_print " " 
+ui_print " Processing..... "
+ui_print " OOS A11+ Detected..."
+elif [ -f "/system/system_ext/priv-app/WeebSystemUI/WeebSystemUI.apk" ]; then
+spath=/system/system_ext/priv-app/WeebSystemUI
+apkname=WeebSystemUI
+ui_print " " 
+ui_print " Processing..... "
+ui_print " Weeb A11+ Detected..."
+elif [ -f "/system/system_ext/priv-app/sysuia/sysuia.apk" ]; then
+spath=/system/system_ext/priv-app/sysuia
+apkname=sysuia
+ui_print " " 
+ui_print " Processing..... "
+ui_print " Aosp Detected..."
+elif [ -f "/system/system_ext/priv-app/TranSystemUI/TranSystemUI.apk" ]; then
+spath=/system/system_ext/priv-app/TranSystemUI
+apkname=TranSystemUI
+ui_print " " 
+ui_print " Processing..... "
+ui_print " Infix Detected..."
 else
-remove
 ui_print " This Looks like a non supported Rom..."
-ui_print " Report in support group "
-ui_print " Note : Only Aosp A11+ is Supported "
+ui_print " Report in support group @cool_modules69 "
+remove
 exit 1
 fi
 
+
+mkdir -p $MODPATH/jai
+cp -f $spath/$apkname.apk $MODPATH/jai/
+file=$MODPATH/jai/$apkname.apk
+ui_print " " 
+ui_print " Processing..... "
 cd $MODPATH/substratumXML/SystemUI/
 echo " "
 if $zipp -qq -r $file * ; then echo " Installing Patches..... "

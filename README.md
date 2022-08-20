@@ -1,5 +1,5 @@
 # SystemUI-Patcher
-A systemUI patcher mod used for injecting Xmls to SystemUI on Aosp A11+, Systemlessly. 
+A systemUI patcher mod used for injecting Xmls to SystemUI on any android device, Systemlessly. 
 
 Module Template by @Jai_08
 
@@ -7,11 +7,10 @@ By @cool_modules on telegram
 
 Feel free to use, modify, distribute as long as a part of credit is present.
 
-Aosp / Oneui roms can use this
+All roms are supported, including aosp, miui, oneui, oos, etc. If it doesn't work for you then report @cool_modules69 on telegram to add support. 
 
-For A11+ only
-
-This mod will patch your SystemUI with xmls which you place under the folder substratumXML
+This mod will patch your SystemUI with xmls which you place under the folder substratumXML. 
+Tested from A9-A13, will probably work fine for older and newer android versions. 
 
 Just flash in magisk and reboot.
 

@@ -2,14 +2,14 @@
 #Write your custom functions here
 SKIPMOUNT=false
 print_modname() {
-#Remove and Add your own custom texts here
+#Remove this and Add your own custom texts here
 ui_print "  " 
 ui_print "  " 
 ui_print "********************************" 
 ui_print "  Installing Patches.... " 
 ui_print "********************************"
 }
-#Impress me, Do something fancy here XD
+#Do something fancy here XD
 on_install() {
    ui_print "  " 
    ui_print " Mod by: ABC "
