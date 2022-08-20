@@ -166,6 +166,18 @@ apkname=TranSystemUI
 ui_print " " 
 ui_print " Processing..... "
 ui_print " Infix Detected..."
+elif [ -f "/system/system_ext/priv-app/MiuiSystemUI/MiuiSystemUI.apk" ]; then
+spath=/system/system_ext/priv-app/MiuiSystemUI
+apkname=MiuiSystemUI
+ui_print " " 
+ui_print " Processing..... "
+ui_print " Miui A10 Detected..."
+elif [ -f "/system/product/priv-app/MiuiSystemUI/MiuiSystemUI.apk" ]; then
+spath=/system/product/priv-app/MiuiSystemUI
+apkname=MiuiSystemUI
+ui_print " " 
+ui_print " Processing..... "
+ui_print " Miui A11+ Detected..."
 else
 ui_print " This Looks like a non supported Rom..."
 ui_print " Report in support group @cool_modules69 "
