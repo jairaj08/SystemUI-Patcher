@@ -10,8 +10,7 @@ Feel free to use, modify, distribute as long as a part of credit is present.
 All roms are supported, including aosp, miui, oneui, oos, etc. If it doesn't work for you then report @cool_modules69 on telegram to add support. 
 
 This mod will patch your SystemUI with xmls (or smali, resources,etc) which you place under the folder substratumXML. 
-Tested by me from A9-A12, will probably work fine for older and newer android versions. 
-(A13 - Works on some roms only!!! Will be coming with a fix soon)
+Tested from A9-A13, will probably work fine for older and newer android versions. 
 
 Just flash in magisk and reboot.
 
