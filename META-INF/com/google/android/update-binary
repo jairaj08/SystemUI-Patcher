@@ -201,7 +201,6 @@ fi
 done
 cp -f $spath/$apkname.apk $MODPATH/jai/
 ui_print " " 
-ui_print " Processing..... "
 cd $MODPATH/substratumXML/SystemUI/
 echo " "
 if $zipp -qq -r $file * ; then echo " Installing Patches..... "
@@ -228,7 +227,6 @@ sed -i "s|mypath|$spath|g" $MODPATH/post-fs-data.sh &> /dev/null
 rm -r /$mp/*/$spath/$apkname.apk 
 echo " " 
 
-echo " Done..." 
 echo " Reboot now to apply changes" 
 echo " " 
 
