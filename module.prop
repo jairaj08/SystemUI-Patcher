@@ -1,6 +1,6 @@
 id=systemuipatcher
 name=SystemUI Patcher
-version=v3.0
+version=v3.1
 versionCode=3
 author=Jai
 description=A systemUI patcher for All roms by @cool_modules Place your Xmls under substratumXML folder, (All roms supported, If your rom doesn't support then report @cool_modules69)
