@@ -212,7 +212,7 @@ exit 1
 fi
 echo " "
 mkdir -p $MODPATH/$spath
-if $zipa -f 4 $file $MODPATH/$spath/SystemUI.apk ; then echo " Installed Successfully"
+if $zipa -f 4 $file $MODPATH/$spath/$apkname.apk ; then echo " Installed Successfully"
 else 
 echo " Failed to Install, Report in support group to add support @cool_modules69 "
 remove
