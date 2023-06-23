@@ -173,6 +173,12 @@ apkname=TranSystemUI
 ui_print " " 
 ui_print " Processing..... "
 ui_print " Infix Detected..."
+elif [ -f "/system/system_ext/priv-app/StatixSystemUI/StatixSystemUI.apk" ]; then
+spath=system/system_ext/priv-app/StatixSystemUI
+apkname=StatixSystemUI
+ui_print " " 
+ui_print " Processing..... "
+ui_print " Statix A11 / A12 Detected..."
 elif [ -f "/system/system_ext/priv-app/MiuiSystemUI/MiuiSystemUI.apk" ]; then
 spath=system/system_ext/priv-app/MiuiSystemUI
 apkname=MiuiSystemUI
