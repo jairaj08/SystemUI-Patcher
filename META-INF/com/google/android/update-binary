@@ -101,6 +101,12 @@ apkname=ParanoidSystemUI
 ui_print " " 
 ui_print " Processing..... "
 ui_print " Paranoid rom Detected..." 
+elif [ -f "/system/system_ext/priv-app/RisingSystemUI/RisingSystemUI.apk" ]; then
+spath=system/system_ext/priv-app/RisingSystemUI
+apkname=RisingSystemUI
+ui_print " " 
+ui_print " Processing..... "
+ui_print " RisingOS rom Detected..." 
 elif [ -f "/system/priv-app/AsusSystemUI/AsusSystemUI.apk" ]; then
 spath=system/priv-app/AsusSystemUI
 apkname=AsusSystemUI
