@@ -104,10 +104,8 @@ prop_process() {
   done < $1
 }
 
-
-
-
 # Set variables
+
 [ -z $DYNLIB ] && DYNLIB=false
 [ -z $DEBUG ] && DEBUG=false
 INFO=$NVBASE/modules/.$MODID-files
@@ -132,11 +130,13 @@ fi
 
 
 # Extract files
+
 unzip -o "$ZIPFILE" -x 'META-INF/*' 'common/functions.sh' -d $MODPATH >&2
 [ -f "$MODPATH/common/addon.tar.xz" ] && tar -xf $MODPATH/common/addon.tar.xz -C $MODPATH/common 2>/dev/null
 
 
 # Run addons
+
 if [ "$(ls -A $MODPATH/common/addon/*/install.sh 2>/dev/null)" ]; then
 
   for i in $MODPATH/common/addon/*/install.sh; do
@@ -164,7 +164,6 @@ if [ -f $INFO ]; then
 fi
 
 ### Install
-
 
 [ -f "$MODPATH/common/install.sh" ] && . $MODPATH/common/install.sh
 # Remove comments from files and place them, add blank line to end if not already present
@@ -204,4 +203,5 @@ set_perm_recursive $MODPATH 0 0 0755 0644
 set_permissions
 
 # Complete install
+
 cleanup
